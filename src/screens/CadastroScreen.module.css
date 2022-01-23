@@ -1,0 +1,69 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.form {
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    min-width: 300px;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background: #ccc;
+}
+
+.form label,
+.form input,
+select {
+    display: inline-block;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border: 2px solid blue;
+    /* background: rgb(239, 239, 252); */
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 10px;;
+}
+
+input,
+select {
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid grey;
+    background: white;
+}
+
+input {
+    width: 97%;  
+}
+
+select {
+    width: 100%;
+    
+}
+
+input.invalid {
+    border: 2px solid red;
+}
+
+@media (min-width: 40rem) {
+    .form {
+        padding: 20px;
+        width: 50%;
+        max-width: 500px;
+        min-width: 350px;
+    }
+}

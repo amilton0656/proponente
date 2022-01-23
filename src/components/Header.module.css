@@ -1,0 +1,38 @@
+.container {
+    background: steelblue;
+    display: inline-block;
+    width: 100%;
+    
+}
+
+.logo {
+    color: white;
+    font-size: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.items {
+    display: inline-block;
+    width: calc(100% - 170px);
+    text-align:end;
+    vertical-align: middle;
+}
+
+.items a {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 100%;
+}
+
+.items a:hover {
+    color: white;
+}
+
+.item {
+    display: inline;
+    font-size: 20px;
+    margin: 0 15px;
+}

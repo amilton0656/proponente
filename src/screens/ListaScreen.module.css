@@ -1,0 +1,44 @@
+.main {
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    min-width: 300px;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background: #ccc;
+}
+
+li {
+    flex: 8;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    width: 90%;
+}
+
+button {
+    flex: 1;
+}
+
+.link {
+    flex: 1;
+}
+
+.item {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+}
+
+
+/* .item:nth-child(even) {
+    background-color: #FFF;
+}
+
+.item:nth-child(odd) {
+    background-color: #CCC;
+} */

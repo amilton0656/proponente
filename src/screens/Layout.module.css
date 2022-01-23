@@ -1,0 +1,7 @@
+.side {
+    flex: 1;
+}
+
+.main {
+    display: flex;
+}
