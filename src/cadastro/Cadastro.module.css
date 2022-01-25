@@ -24,6 +24,18 @@ h2 {
     width: 330px;
 }
 
+
+
+.checkboxBox {
+    display: flex;
+    width: 330px;
+    margin: 5px 0 10px 0;
+}
+
+.checkboxBox input {
+    width: 20px;
+}
+
 .form label,
 .form input,
 select {

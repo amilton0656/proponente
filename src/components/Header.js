@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import classes from './Header.module.css'
 
 
@@ -10,7 +10,13 @@ const Header = props => {
         </div>
         <ul className={classes.items}>
             <li className={classes.item}>
-            <NavLink to="/proponente/cadastro">Cadastro</NavLink>
+            <NavLink to="/proponente/cadastrodados">Dados</NavLink>
+            </li>
+            <li className={classes.item}>
+            <NavLink to="/proponente/cadastrocontatos">Contatos</NavLink>
+            </li>
+            <li className={classes.item}>
+            <NavLink to="/proponente/cadastrocomplemento">Complemento</NavLink>
             </li>
             <li className={classes.item}>
             <NavLink to="/proponente/lista">Lista</NavLink>

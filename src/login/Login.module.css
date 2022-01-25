@@ -1,0 +1,64 @@
+body {
+    background: steelblue;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.form {
+    width: 90vw;
+    height: 60vh;
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+label {
+    align-items: left;
+    display: block;
+    font-size: 1rem;
+    color: white;
+    margin: 3rem 0 0.3rem 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.6rem 0.4rem;
+    border-radius: 0.6rem;
+    font-size: 1.3rem;
+}
+
+.buttonBox {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: lightblue;
+    padding: 0.6rem;
+    width: 80%;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    margin: 4rem auto;
+}
+
+@media (min-width: 370px) {
+    .form {
+        width: 300px;
+        height: 400px;
+        padding: 10px 20px;
+    
+    }
+}

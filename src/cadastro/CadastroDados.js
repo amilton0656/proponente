@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios'
-import classes from './CadastroScreen.module.css'
+import classes from './Cadastro.module.css'
 import { pessoasActions } from '../store/proponenteReducers'
 import { cepMask, cpfMask, cnpjMask, cpfFormat, cnpjFormat, clearFormat } from '../util/util'
 
 
-const CadastroScreen = props => {
+const CadastroDados = props => {
 
     const dispatch = useDispatch()
 
@@ -122,7 +122,7 @@ const CadastroScreen = props => {
 
     return (
         <main>
-            <h2>Cadastro</h2>
+            <h2>Cadastro - Dados</h2>
             <form onSubmit={submitHandler} className={classes.form}>
 
                 {/* Tipo de Pessoa */}
@@ -277,4 +277,4 @@ const CadastroScreen = props => {
     );
 }
 
-export default CadastroScreen;
+export default CadastroDados;
