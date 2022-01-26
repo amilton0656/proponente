@@ -51,21 +51,18 @@ const CadastroDados = props => {
         if (event.target.name === 'cep') {
             dataEntered = cepMask(event.target.value)
             if (event.target.value.length === 9) {
-                    onBuscarCep(event.target.value)
+                onBuscarCep(event.target.value)
 
             }
         }
 
-        // if (event.target.name === 'uf') {
-        //     console.log(event.target.value)
-        // }
 
         setFormData({
             ...formData,
             [event.target.name]: dataEntered.toUpperCase()
         })
 
-        
+
     }
 
 
@@ -89,34 +86,34 @@ const CadastroDados = props => {
         : <button type="submit" >Salvar</button>
 
     const onBuscarCep = cep => {
- 
+
         console.log('cep...', cep)
 
 
         axios.get(`https://api.postmon.com.br/v1/cep/${cep}`)
-        .then(resposta => {
-            const { logradouro, bairro, cidade, estado } = resposta.data
+            .then(resposta => {
+                const { logradouro, bairro, cidade, estado } = resposta.data
 
-            setFormData(
-                {
-                    ...formData,
-                    cep: cepMask(cep),
-                    endereco: logradouro.toUpperCase(),
-                    bairro: bairro.toUpperCase(),
-                    municipio: cidade.toUpperCase(),
-                    uf: estado.toUpperCase()
-                }
-            )
-        })
-        .catch(err => {
-            // Swal.fire({
-            //     position: 'center',
-            //     type: 'erro',
-            //     title: 'CEP não encontrado',
-            //     showConfirmButton: false,
-            //     timer: 3000
-            //     })
-        })
+                setFormData(
+                    {
+                        ...formData,
+                        cep: cepMask(cep),
+                        endereco: logradouro.toUpperCase(),
+                        bairro: bairro.toUpperCase(),
+                        municipio: cidade.toUpperCase(),
+                        uf: estado.toUpperCase()
+                    }
+                )
+            })
+            .catch(err => {
+                // Swal.fire({
+                //     position: 'center',
+                //     type: 'erro',
+                //     title: 'CEP não encontrado',
+                //     showConfirmButton: false,
+                //     timer: 3000
+                //     })
+            })
 
     }
 
@@ -129,23 +126,30 @@ const CadastroDados = props => {
                 <div className={classes.inputBox}>
                     <label htmlFor="tpPessoa">Tipo de Pessoa:</label>
                     <div className={classes.radioBox}>
-                        <input
-                            type='radio'
-                            name='tpPessoa'
-                            id="tpPessoa1"
-                            onChange={textHandler}
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='tpPessoa'
+                                id="tpPessoa1"
+                                onChange={textHandler}
 
-                            value={formData.tpPessoa}
-                            checked={formData.tpPessoa === "1"}
-                        /><label htmlFor="tpPessoa1">Física</label>
-                        <input
-                            type='radio'
-                            name='tpPessoa'
-                            id="tpPessoa2"
-                            onChange={textHandler}
-                            value={formData.tpPessoa}
-                            checked={formData.tpPessoa === "2"}
-                        /><label htmlFor="tpPessoa2">Jurídica</label>
+                                value={formData.tpPessoa}
+                                checked={formData.tpPessoa === "1"}
+                            /><label htmlFor="tpPessoa1">Física</label>
+
+                        </div>
+                        
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='tpPessoa'
+                                id="tpPessoa2"
+                                onChange={textHandler}
+                                value={formData.tpPessoa}
+                                checked={formData.tpPessoa === "2"}
+                            /><label htmlFor="tpPessoa2">Jurídica</label>
+
+                        </div>
 
                     </div>
                 </div>
@@ -231,7 +235,7 @@ const CadastroDados = props => {
 
                 {/* Município */}
                 <div className={classes.inputBox}>
-                <label htmlFor="uf">UF:</label>
+                    <label htmlFor="uf">UF:</label>
                     <select
                         id="uf"
                         name="uf"

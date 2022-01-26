@@ -9,22 +9,29 @@ h2 {
 
 .form {
     padding: 8px;
-    width: 330px;
-    max-width: 350px;
-    min-width: 300px;
+    width: 370px;
     margin: auto;
     border: 1px solid grey;
     border-radius: 5px;
     background: rgb(228, 226, 226);
 }
 
+.comprometimentoBox {
+    padding: 8px;
+    padding-bottom: 20px;
+    width: 350px;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background: rgb(228, 226, 226);
+    margin-top: 20px;
+}
+
 .inputBox {
     display: flex;
     flex-direction: column;
-    width: 330px;
+    width: 370px;
 }
-
-
 
 .checkboxBox {
     display: flex;
@@ -43,14 +50,53 @@ select {
 }
 
 .radioBox {
-    padding: 0.3rem 0rem 0.3rem 0.5rem;
+    padding: 0.6rem 0rem 0.6rem 0.5rem;
     font-size: 1rem;
     border-radius: 5px;
     border: 1px solid grey;
     background: white;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
+/* .radioBoxLinha {
+    padding: 7px;
+} */
+
+.radioBoxLeft input, label {
+    display: inline-block;
+}
+
+
+.radioBox2Col {
+    flex: 1;
+}
+
+.radioBoxLinha {
+display: flex;
+justify-content: flex-start;
+padding: 7px;
+}
+
+.radioBoxLinha label{
+    margin: 0;
+}
+
+.radioBoxLinha input {
+    margin-right: 10px;
+}
+
+/* .radioBox2 {
+    
+    flex-direction: column;
+} */
+
+/* .estcivilcoluna {
+    width: 33%;
+    flex-direction: column;
+} */
 
 .radioBox input {
     width: 15px;
@@ -58,13 +104,15 @@ select {
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 3px;
+    
 }
 
 .radioBox label {
     margin: 0 20px 0 0;
     height: 15px;
     vertical-align: middle;
-    display: inline-block;
+    /* display: inline; */
+    font-size: 1rem;
 }
 
 input:focus,
@@ -76,31 +124,39 @@ select:focus {
 
 label {
     font-weight: bold;
-    font-size: 0.8rem;
-    margin-top: 10px;;
+    font-size: 1rem;
+    margin-top: 20px;;
 }
 
 input,
 select {
-    padding: 0.3rem 0rem 0.3rem 10px;
-    font-size: 1rem;
+    padding: 0.5rem 0rem 0.5rem 10px;
+    font-size: 1.2rem;
     border-radius: 5px;
     border: 1px solid grey;
     background: white;
 
 }
 
+textarea {
+    width: 360px;
+}
+
 input {
-    width: 318px;  
+    width: 360px;  
 }
 
 .w20 {
-    width: 100px;
+    width: 200px;
 }
 
 .w40 {
     width: 160px;
 } 
+
+.w80 {
+    width: 335px;
+}
 
 
 
@@ -144,7 +200,8 @@ input.invalid {
         width: 390px;  
     }
 
-    select {
+    select,
+    textarea {
         width: 400px;  
     }
 
@@ -154,5 +211,14 @@ input.invalid {
 
     .botaoBox {
         margin: 30px 120px;
+    }
+
+    .comprometimentoBox {
+        width: 380px;
+
+    }
+
+    .w80 {
+        width: 365px;
     }
 }

@@ -16,7 +16,7 @@ const CadastroComplemento = props => {
         data_nascimento: '',
         nacionalidade: '',
         sexo: '1',
-        estadocivil: '1',
+        estado_civil: '1',
         uniao_estavel: '0',
         conjuge_nome: '',
         conjuge_cpf: '',
@@ -41,20 +41,66 @@ const CadastroComplemento = props => {
 
         let dataEntered = event.target.value
 
-        if (event.target.name === 'tpPessoa') {
-            if (event.target.id === 'tpPessoa1') {
+        if (event.target.name === 'sexo') {
+            if (event.target.id === 'sexo1') {
                 dataEntered = '1'
             } else {
                 dataEntered = '2'
             }
         }
 
-        if (event.target.name === 'cpf_cnpj') {
-            if (formData.tpPessoa === '1') {
-                dataEntered = cpfMask(event.target.value)
-            } else {
-                dataEntered = cnpjMask(event.target.value)
+        if (event.target.name === 'estado_civil') {
+            switch (event.target.id) {
+                case 'estado_civil1':
+                    dataEntered = '1'
+                    break
+
+                case 'estado_civil2':
+                    dataEntered = '2'
+                    break
+
+                case 'estado_civil3':
+                    dataEntered = '3'
+                    break
+
+                case 'estado_civil4':
+                    dataEntered = '4'
+                    break
+
+                case 'estado_civil5':
+                    dataEntered = '5'
+                    break
             }
+
+        }
+
+        if (event.target.name === 'regime_casamento') {
+            switch (event.target.id) {
+                case 'regime_casamento1':
+                    dataEntered = '1'
+                    break
+
+                case 'regime_casamento2':
+                    dataEntered = '2'
+                    break
+
+                case 'regime_casamento3':
+                    dataEntered = '3'
+                    break
+
+                case 'regime_casamento4':
+                    dataEntered = '4'
+                    break
+            }
+
+        }
+
+        if (event.target.name === 'uniao_estavel') {
+            dataEntered = event.target.value === '0' ? '1' : '0'
+        }
+
+        if (event.target.name === 'conjuge_cpf') {
+            dataEntered = cpfMask(event.target.value)
         }
 
         if (event.target.name === 'cep') {
@@ -67,7 +113,8 @@ const CadastroComplemento = props => {
 
         setFormData({
             ...formData,
-            [event.target.name]: dataEntered.toUpperCase()
+            [event.target.name]: dataEntered
+            // .toUpperCase()
         })
 
 
@@ -158,88 +205,100 @@ const CadastroComplemento = props => {
                 <div className={classes.inputBox}>
                     <label htmlFor="sexo">Sexo:</label>
                     <div className={classes.radioBox}>
-                        <input
-                            type='radio'
-                            name='sexo'
-                            id="sexo1"
-                            onChange={textHandler}
-
-                            value={formData.sexo}
-                            checked={formData.sexo === "1"}
-                        /><label htmlFor="sexo1">Masculino</label>
-                        <input
-                            type='radio'
-                            name='sexo'
-                            id="sexo2"
-                            onChange={textHandler}
-                            value={formData.sexo}
-                            checked={formData.sexo === "2"}
-                        /><label htmlFor="sexo2">Feminino</label>
-
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='sexo'
+                                id="sexo1"
+                                onChange={textHandler}
+                                value={formData.sexo}
+                                checked={formData.sexo === "1"}
+                            /><label htmlFor="sexo1">Masculino</label>
+                        </div>
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='sexo'
+                                id="sexo2"
+                                onChange={textHandler}
+                                value={formData.sexo}
+                                checked={formData.sexo === "2"}
+                            /><label htmlFor="sexo2">Feminino</label>
+                        </div>
                     </div>
                 </div>
 
                 {/* Estado Civil */}
                 <div className={classes.inputBox}>
-                    <label htmlFor="sexo">Estado Civil:</label>
+                    <label htmlFor="estado_civil">Estado Civil:</label>
                     <div className={classes.radioBox}>
-                        <input
-                            type='radio'
-                            name='estadocivil'
-                            id="estadocivil1"
-                            onChange={textHandler}
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='estado_civil'
+                                id="estado_civil1"
+                                onChange={textHandler}
 
-                            value={formData.estadocivil}
-                            checked={formData.estadocivil === "1"}
-                        /><label htmlFor="estadocivil1">Solteiro(a)</label>
-                        <input
-                            type='radio'
-                            name='estadocivil'
-                            id="estadocivil2"
-                            onChange={textHandler}
-                            value={formData.estadocivil}
-                            checked={formData.estadocivil === "2"}
-                        /><label htmlFor="estadocivil2">Casado(a)</label>
-                        <input
-                            type='radio'
-                            name='estadocivil'
-                            id="estadocivil3"
-                            onChange={textHandler}
-                            value={formData.estadocivil}
-                            checked={formData.estadocivil === "2"}
-                        /><label htmlFor="estadocivil3">Separado(a)</label>
-                        <input
-                            type='radio'
-                            name='estadocivil'
-                            id="estadocivil4"
-                            onChange={textHandler}
-                            value={formData.estadocivil}
-                            checked={formData.estadocivil === "2"}
-                        /><label htmlFor="estadocivil4">Divorciado(a)</label>
-                        <input
-                            type='radio'
-                            name='estadocivil'
-                            id="estadocivil5"
-                            onChange={textHandler}
-                            value={formData.estadocivil}
-                            checked={formData.estadocivil === "2"}
-                        /><label htmlFor="estadocivil5">Viúvo(a)</label>
-
+                                value={formData.estado_civil}
+                                checked={formData.estado_civil === "1"}
+                            /><label htmlFor="estado_civil1">Solteiro(a)</label>
+                        </div>
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='estado_civil'
+                                id="estado_civil2"
+                                onChange={textHandler}
+                                value={formData.estado_civil}
+                                checked={formData.estado_civil === "2"}
+                            /><label htmlFor="estado_civil2">Casado(a)</label>
+                        </div>
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='estado_civil'
+                                id="estado_civil3"
+                                onChange={textHandler}
+                                value={formData.estado_civil}
+                                checked={formData.estado_civil === "3"}
+                            /><label htmlFor="estado_civil3">Separado(a)</label>
+                        </div>
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='estado_civil'
+                                id="estado_civil4"
+                                onChange={textHandler}
+                                value={formData.estado_civil}
+                                checked={formData.estado_civil === "4"}
+                            /><label htmlFor="estado_civil4">Divorciado(a)</label>
+                        </div>
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='estado_civil'
+                                id="estado_civil5"
+                                onChange={textHandler}
+                                value={formData.estado_civil}
+                                checked={formData.estado_civil === "5"}
+                            /><label htmlFor="estado_civil5">Viúvo(a)</label>
+                        </div>
                     </div>
                 </div>
 
                 {/* União Estável */}
                 <div className={classes.checkboxBox}>
                     <div>
-                    <input
-                        type='checkbox'
-                        className={classes.w40}
-                        id="uniao_estavel"
-                        name="uniao_estavel"
-                        onChange={textHandler}
-                        value={formData.uniao_estavel}
-                    />
-                    <label htmlFor="uniao_estavel">União Estável:</label>
+                        <input
+                            type='checkbox'
+                            className={classes.w40}
+                            id="uniao_estavel"
+                            name="uniao_estavel"
+                            defaultChecked={formData.uniao_estavel === '0' ? false : true}
+                            onChange={textHandler}
+                            value={formData.uniao_estavel}
+                        />
+                        <label htmlFor="uniao_estavel">União Estável:</label>
 
                     </div>
                 </div>
@@ -271,40 +330,48 @@ const CadastroComplemento = props => {
                 <div className={classes.inputBox}>
                     <label htmlFor="regime_casamento">Regime de Casamento:</label>
                     <div className={classes.radioBox}>
-                        <input
-                            type='radio'
-                            name='regime_casamento'
-                            id="regime_casamento1"
-                            onChange={textHandler}
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='regime_casamento'
+                                id="regime_casamento1"
+                                onChange={textHandler}
 
-                            value={formData.regime_casamento}
-                            checked={formData.regime_casamento === "1"}
-                        /><label htmlFor="regime_casamento1">Comunhão Universal de Bens</label>
-                        <input
-                            type='radio'
-                            name='regime_casamento'
-                            id="regime_casamento2"
-                            onChange={textHandler}
-                            value={formData.regime_casamento}
-                            checked={formData.regime_casamento === "2"}
-                        /><label htmlFor="regime_casamento2">Comunhão Parcial de Bens</label>
-                        <input
-                            type='radio'
-                            name='regime_casamento'
-                            id="regime_casamento1"
-                            onChange={textHandler}
+                                value={formData.regime_casamento}
+                                checked={formData.regime_casamento === "1"}
+                            /><label htmlFor="regime_casamento1">Comunhão Universal de Bens</label>
+                        </div>
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='regime_casamento'
+                                id="regime_casamento2"
+                                onChange={textHandler}
+                                value={formData.regime_casamento}
+                                checked={formData.regime_casamento === "2"}
+                            /><label htmlFor="regime_casamento2">Comunhão Parcial de Bens</label>
+                        </div>
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='regime_casamento'
+                                id="regime_casamento3"
+                                onChange={textHandler}
 
-                            value={formData.regime_casamento}
-                            checked={formData.regime_casamento === "1"}
-                        /><label htmlFor="regime_casamento3">Separação de Bens</label>
-                        <input
-                            type='radio'
-                            name='regime_casamento'
-                            id="regime_casamento2"
-                            onChange={textHandler}
-                            value={formData.regime_casamento}
-                            checked={formData.regime_casamento === "2"}
-                        /><label htmlFor="regime_casamento4">Outros</label>
+                                value={formData.regime_casamento}
+                                checked={formData.regime_casamento === "3"}
+                            /><label htmlFor="regime_casamento3">Separação de Bens</label>
+                        </div>
+                        <div className={classes.radioBoxLinha}>
+                            <input
+                                type='radio'
+                                name='regime_casamento'
+                                id="regime_casamento4"
+                                onChange={textHandler}
+                                value={formData.regime_casamento}
+                                checked={formData.regime_casamento === "4"}
+                            /><label htmlFor="regime_casamento4">Outros</label>
+                        </div>
                     </div>
                 </div>
 
@@ -326,8 +393,8 @@ const CadastroComplemento = props => {
                     <label htmlFor="pacto_nupcial">Pacto Antenupcial:</label>
                     <textarea
                         type='text'
-                        cols="40" 
-                        rows="5" 
+                        cols="100"
+                        rows="5"
                         id="pacto_nupcial"
                         name="pacto_nupcial"
                         onChange={textHandler}
@@ -368,8 +435,8 @@ const CadastroComplemento = props => {
                     />
                 </div>
 
-               {/* Data da Expedição */}
-               <div className={classes.inputBox}>
+                {/* Data da Expedição */}
+                <div className={classes.inputBox}>
                     <label htmlFor="data_expedicao">Data da Expedição:</label>
                     <input
                         className={classes.w40}
@@ -381,8 +448,8 @@ const CadastroComplemento = props => {
                     />
                 </div>
 
-                 {/* Órgao Emissor / UF */}
-                 <div className={classes.inputBox}>
+                {/* Órgao Emissor / UF */}
+                <div className={classes.inputBox}>
                     <label htmlFor="orgao_emissor_uf">Órgão Emissor / UF:</label>
                     <input
                         id="orgao_emissor_uf"
@@ -403,8 +470,8 @@ const CadastroComplemento = props => {
                     />
                 </div>
 
-                 {/* Cargo */}
-                 <div className={classes.inputBox}>
+                {/* Cargo */}
+                <div className={classes.inputBox}>
                     <label htmlFor="cargo">Cargo:</label>
                     <input
                         id="cargo"
@@ -436,38 +503,50 @@ const CadastroComplemento = props => {
                     />
                 </div>
 
-                {/* Tempo na Empresa */}
-                <div className={classes.inputBox}>
-                    <label htmlFor="tempo_empresa">Tempo na Empresa:</label>
-                    <input
-                        id="tempo_empresa"
-                        name="tempo_empresa"
-                        onChange={textHandler}
-                        value={formData.tempo_empresa}
-                    />
+                <div className={classes.comprometimentoBox}>
+
+<div>
+    Compromentimento da Renda Familiar
+</div>
+
+                    {/* Comprometimento - Percentual */}
+                    <div className={classes.inputBox}>
+                        <label htmlFor="financ_valor">Percentual:</label>
+                        <input
+                            id="financ_valor"
+                            name="financ_valor"
+                            onChange={textHandler}
+                            value={formData.financ_valor}
+                            className={classes.w80}
+                        />
+                    </div>
+
+                    {/* Comprometimento - Prazo */}
+                    <div className={classes.inputBox}>
+                        <label htmlFor="financ_prazo">Prazo:</label>
+                        <input
+                            id="financ_prazo"
+                            name="financ_prazo"
+                            onChange={textHandler}
+                            value={formData.financ_prazo}
+                            className={classes.w80}
+                        />
+                    </div>
+
+                    {/* Comprometimento - Descrição */}
+                    <div className={classes.inputBox}>
+                        <label htmlFor="financ_descricao">Descrição:</label>
+                        <input
+                            id="financ_descricao"
+                            name="financ_descricao"
+                            onChange={textHandler}
+                            value={formData.financ_descricao}
+                            className={classes.w80}
+                        />
+                    </div>
+
                 </div>
 
-                {/* Tempo na Empresa */}
-                <div className={classes.inputBox}>
-                    <label htmlFor="tempo_empresa">Tempo na Empresa:</label>
-                    <input
-                        id="tempo_empresa"
-                        name="tempo_empresa"
-                        onChange={textHandler}
-                        value={formData.tempo_empresa}
-                    />
-                </div>
-
-                {/* Tempo na Empresa */}
-                <div className={classes.inputBox}>
-                    <label htmlFor="tempo_empresa">Tempo na Empresa:</label>
-                    <input
-                        id="tempo_empresa"
-                        name="tempo_empresa"
-                        onChange={textHandler}
-                        value={formData.tempo_empresa}
-                    />
-                </div>
 
                 <div className={classes.botaoBox}>
                     {botao}
