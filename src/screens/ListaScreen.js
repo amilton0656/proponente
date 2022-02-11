@@ -45,7 +45,6 @@ const ListaScreen = () => {
                        <button onClick={() => navigate('/proponente/cadastro', {state: pessoa})}><FaRegEdit /></button>
                        <button onClick={() => navigate(`/proponente/${pessoa.id}`, {state: pessoa})}><BiDetail /></button>
                        </div>
-
                    </div>
                )
                )
